@@ -1,0 +1,470 @@
+contentitemexportablefields:
+  contentitemfields:
+    definitionid: ""
+    fromServerVersion: ""
+    itemVersion: ""
+    packID: ""
+    packName: ""
+    prevname: ""
+    propagationLabels:
+    - all
+    toServerVersion: ""
+id: TestCommonPython
+inputs: []
+name: TestCommonPython
+outputs: []
+starttaskid: "0"
+tasks:
+  "0":
+    continueonerrortype: ""
+    id: "0"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "4"
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: d7081fa6-ba91-4984-8608-94dccfd3b904
+      iscommand: false
+      name: ""
+      version: -1
+    taskid: d7081fa6-ba91-4984-8608-94dccfd3b904
+    timertriggers: []
+    type: start
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 50
+        }
+      }
+  "2":
+    continueonerrortype: ""
+    id: "2"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "3"
+    note: false
+    quietmode: 0
+    scriptarguments:
+      test_type:
+        simple: DQ
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 8270f22b-634e-49fa-8acf-be9c1ca4f59a
+      iscommand: false
+      name: Test DQ
+      script: TestPYCommonServer
+      type: regular
+      version: -1
+    taskid: 8270f22b-634e-49fa-8acf-be9c1ca4f59a
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 370
+        }
+      }
+  "3":
+    continueonerrortype: ""
+    id: "3"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "6"
+    note: false
+    quietmode: 0
+    scriptarguments:
+      test_type:
+        simple: MD
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      description: Tests for common functions createEntry and TableToMarkDown
+      id: 6867b7f4-1357-40cc-8311-bbf72a0194ff
+      iscommand: false
+      name: Test MarkDown
+      script: TestPYCommonServer
+      type: regular
+      version: -1
+    taskid: 6867b7f4-1357-40cc-8311-bbf72a0194ff
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 545
+        }
+      }
+  "4":
+    continueonerrortype: ""
+    id: "4"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "2"
+    note: false
+    quietmode: 0
+    scriptarguments:
+      test_type:
+        simple: XML
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      description: 'Tests for common functions xml2json and json2xml '
+      id: fd1fc77b-b6dc-4ddc-8185-6118c191386b
+      iscommand: false
+      name: Test XML JSON relations
+      script: TestPYCommonServer
+      type: regular
+      version: -1
+    taskid: fd1fc77b-b6dc-4ddc-8185-6118c191386b
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 195
+        }
+      }
+  "5":
+    continueonerrortype: ""
+    id: "5"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "14"
+    note: false
+    quietmode: 0
+    scriptarguments:
+      test_type:
+        simple: TBLMD
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      description: Tests underscoreToCamelCase and tableToMarkDown with and without
+        headerTransform
+      id: 8400165d-3177-42ec-8de4-f036a73e652f
+      iscommand: false
+      name: Test tableToMarkdown
+      script: TestPYCommonServer
+      type: regular
+      version: -1
+    taskid: 8400165d-3177-42ec-8de4-f036a73e652f
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 895
+        }
+      }
+  "6":
+    continueonerrortype: ""
+    id: "6"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "5"
+    note: false
+    quietmode: 0
+    scriptarguments:
+      test_type:
+        simple: HASH
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: b12a1567-1538-4129-814f-f7df5f79dda9
+      iscommand: false
+      name: Test hash function
+      script: TestPYCommonServer
+      type: regular
+      version: -1
+    taskid: b12a1567-1538-4129-814f-f7df5f79dda9
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 720
+        }
+      }
+  "8":
+    continueonerrortype: ""
+    id: "8"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "10"
+    note: false
+    quietmode: 0
+    scriptarguments:
+      test_type:
+        simple: DATE_TO_TIMESTAMP
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 8298faa6-a672-4f81-8fa2-4a772c79692b
+      iscommand: false
+      name: Test date_to_timestamp
+      script: TestPYCommonServer
+      type: regular
+      version: -1
+    taskid: 8298faa6-a672-4f81-8fa2-4a772c79692b
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 1420
+        }
+      }
+  "9":
+    continueonerrortype: ""
+    id: "9"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "8"
+    note: false
+    quietmode: 0
+    scriptarguments:
+      test_type:
+        simple: CAMELIZE
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 24c1fbd9-d2ac-4f5f-8900-ccaa0db70abf
+      iscommand: false
+      name: Test camelize
+      script: TestPYCommonServer
+      type: regular
+      version: -1
+    taskid: 24c1fbd9-d2ac-4f5f-8900-ccaa0db70abf
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 1245
+        }
+      }
+  "10":
+    continueonerrortype: ""
+    id: "10"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "11"
+    note: false
+    quietmode: 0
+    scriptarguments:
+      test_type:
+        simple: PASCAL_TO_SPACE
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 592eeb2a-c7a6-415f-86ad-a2cbcac34c95
+      iscommand: false
+      name: Test PascalToSpace
+      script: TestPYCommonServer
+      type: regular
+      version: -1
+    taskid: 592eeb2a-c7a6-415f-86ad-a2cbcac34c95
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 1595
+        }
+      }
+  "11":
+    continueonerrortype: ""
+    id: "11"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "12"
+    note: false
+    quietmode: 0
+    scriptarguments:
+      test_type:
+        simple: RETURN_OUTPUTS
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 474f3e46-b9eb-4141-8220-3b00d61f4626
+      iscommand: false
+      name: Test return_outputs
+      script: TestPYCommonServer
+      type: regular
+      version: -1
+    taskid: 474f3e46-b9eb-4141-8220-3b00d61f4626
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 1770
+        }
+      }
+  "12":
+    conditions:
+    - condition:
+      - - left:
+            iscontext: true
+            value:
+              simple: foo
+          operator: isEqualString
+          right:
+            value:
+              simple: foo1
+      label: "yes"
+    continueonerrortype: ""
+    id: "12"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      "yes":
+      - "13"
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: d31aa1ed-2cff-4986-8cf1-7ed1084ae899
+      iscommand: false
+      name: check if context contain foo
+      type: condition
+      version: -1
+    taskid: d31aa1ed-2cff-4986-8cf1-7ed1084ae899
+    timertriggers: []
+    type: condition
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 1945
+        }
+      }
+  "13":
+    continueonerrortype: ""
+    id: "13"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: d7f9d9d5-107b-4663-85a0-502d94c3f95e
+      iscommand: false
+      name: Test Success
+      type: title
+      version: -1
+    taskid: d7f9d9d5-107b-4663-85a0-502d94c3f95e
+    timertriggers: []
+    type: title
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 2120
+        }
+      }
+  "14":
+    continueonerrortype: ""
+    id: "14"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "9"
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      description: Tests that tableToMarkdown handles encoding of non-ascii chars
+        in nested dicts (python 2)
+      id: 20b35f73-3bac-4701-8ac3-735e406e276e
+      iscommand: false
+      name: 'CallTableToMarkdown encoding non-ascii chars '
+      script: CallTableToMarkdown
+      type: regular
+      version: -1
+    taskid: 20b35f73-3bac-4701-8ac3-735e406e276e
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 1070
+        }
+      }
+version: -1
+view: |-
+  {
+    "linkLabelsPosition": {},
+    "paper": {
+      "dimensions": {
+        "height": 2135,
+        "width": 380,
+        "x": 50,
+        "y": 50
+      }
+    }
+  }
