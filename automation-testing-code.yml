@@ -1,0 +1,89 @@
+commonfields:
+  id: 5d8d2b03-e401-49f8-87a9-4c7b8927c53c
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    definitionid: ""
+    fromServerVersion: ""
+    itemVersion: ""
+    packID: ""
+    packName: ""
+    prevname: ""
+    propagationLabels:
+    - all
+    toServerVersion: ""
+dockerimage: demisto/python3:3.12.11.4508456
+enabled: true
+engineinfo: {}
+mainengineinfo: {}
+name: testing-code
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |
+  import requests
+  import urllib3
+  import sys
+
+  # --- Disable SSL warnings for self-signed certs ---
+  urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+  # --- Configuration ---
+  XSOAR_HOST = "192.168.0.122"
+  XSOAR_PORT = "443"  # Change if XSOAR runs on different port
+  API_KEY = "0DE36B6B99396E1986E3926CA1CC9517"
+
+  GIT_HOST = "192.168.0.121"
+  GIT_PORT = "3000"
+
+  PLAYBOOK_FILE_NAME = "playbook-TestCommonPython_4_1.yml"
+  PLAYBOOK_URL = f"http://{GIT_HOST}:{GIT_PORT}/pramod8901/xsoar-playbooks/raw/branch/master/{PLAYBOOK_FILE_NAME}"
+
+  # --- Helper functions for logging ---
+  def log_info(message):
+      print(f"[INFO] {message}")
+
+  def log_error(message):
+      print(f"[ERROR] {message}", file=sys.stderr)
+
+  # --- Step 1: Fetch Playbook from Git ---
+  try:
+      log_info(f"Fetching playbook from Git: {PLAYBOOK_URL}")
+      res = requests.get(PLAYBOOK_URL, verify=False, timeout=20)
+      res.raise_for_status()
+      playbook_content = res.content
+      log_info(f"✅ Fetched playbook {PLAYBOOK_FILE_NAME} ({len(playbook_content)} bytes)")
+  except Exception as e:
+      log_error(f"❌ Failed to fetch playbook: {str(e)}")
+      sys.exit(1)
+
+  # --- Step 2: Upload Playbook to XSOAR ---
+  upload_url = f"https://{XSOAR_HOST}:{XSOAR_PORT}/playbook/save/yaml"  # Correct endpoint
+  headers = {
+      "Authorization": API_KEY,
+      "Accept": "application/json"
+  }
+  files = {
+      "file": (PLAYBOOK_FILE_NAME, playbook_content, "text/yaml")
+  }
+
+  try:
+      log_info(f"Uploading playbook to XSOAR: {upload_url}")
+      res = requests.post(upload_url, headers=headers, files=files, verify=False, timeout=30)
+
+      if res.status_code == 200:
+          try:
+              json_resp = res.json()
+              log_info(f"⬆️ Upload finished successfully!\nResponse:\n{json_resp}")
+          except ValueError:
+              log_error(f"⚠️ Upload succeeded but response is not JSON:\n{res.text[:500]}")
+      else:
+          log_error(f"❌ Upload failed with status {res.status_code}:\n{res.text[:500]}")
+
+  except Exception as e:
+      log_error(f"❌ Upload request failed: {str(e)}")
+      sys.exit(1)
+scripttarget: 0
+subtype: python3
+tags: []
+type: python
